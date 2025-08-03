@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AICareerAgent</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar" aria-label="Main Navigation">
+    <span>AICareerAgent</span>
+    <span style="font-size:0.9em; margin-left:16px;">Your AI-powered career coach</span>
+  </nav>
+
+  <div class="container">
+    <!-- 🌟 Career Pathway Agent -->
+    <section aria-labelledby="career-heading" class="form-section">
+      <h2 id="career-heading">1. Discover Career Pathways</h2>
+      <label for="career-input" class="sr-only">Describe your interests, strengths, or goals</label>
+      <textarea id="career-input" placeholder="What are your interests, strengths, or goals?" aria-describedby="career-desc"></textarea>
+      <div id="career-desc" class="mb-2">Get personalized career suggestions based on your input.</div>
+      <button onclick="getCareerSuggestions()" id="career-btn">Get Career Suggestions</button>
+      <div id="career-loading" style="display:none;" class="mt-2">Loading...</div>
+      <div id="career-output" class="output-box" aria-live="polite"></div>
+    </section>
+
+    <!-- 🧾 Resume Builder Agent -->
+    <section aria-labelledby="resume-heading" class="form-section">
+      <h2 id="resume-heading">2. Resume Builder</h2>
+      <label for="resume-input" class="sr-only">Describe your experience</label>
+      <textarea id="resume-input" placeholder="Describe your work, school, or volunteer experience..."></textarea>
+      <div class="mb-2">Generate resume bullet points from your experience.</div>
+      <button onclick="getResume()" id="resume-btn">Generate Resume Bullets</button>
+      <div id="resume-loading" style="display:none;" class="mt-2">Loading...</div>
+      <div id="resume-output" class="output-box" aria-live="polite"></div>
+    </section>
+
+    <!-- 🎤 Interview Coach Agent -->
+    <section aria-labelledby="interview-heading" class="form-section">
+      <h2 id="interview-heading">3. Interview Coach</h2>
+      <label for="interview-role" class="sr-only">Job Title</label>
+      <input type="text" id="interview-role" placeholder="Enter a job title (e.g., Software Engineer)" />
+      <div class="mb-2">Practice interview questions for your target role.</div>
+      <button onclick="getInterviewQuestions()" id="interview-btn">Start Interview</button>
+      <div id="interview-loading" style="display:none;" class="mt-2">Loading...</div>
+      <div id="interview-output" class="output-box" aria-live="polite"></div>
+    </section>
+
+    <!-- 📚 Learning Resources Agent -->
+    <section aria-labelledby="learning-heading" class="form-section">
+      <h2 id="learning-heading">4. Learning Path</h2>
+      <label for="learning-input" class="sr-only">Target Job</label>
+      <input type="text" id="learning-input" placeholder="What job do you want to learn for?" />
+      <div class="mb-2">Get curated learning resources for your chosen career.</div>
+      <button onclick="getLearningResources()" id="learning-btn">Get Learning Resources</button>
+      <div id="learning-loading" style="display:none;" class="mt-2">Loading...</div>
+      <div id="learning-output" class="output-box" aria-live="polite"></div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align:center; margin:32px 0 12px 0; color:#888; font-size:0.95em;">
+    &copy; 2025 AICareerAgent. All rights reserved.
+  </footer>
+
+<!-- Link JS Files -->
+  <script src="js/career.js"></script>
+  <script src="js/resume.js"></script>
+  <script src="js/interview.js"></script>
+  <script src="js/learning.js"></script>
+    </script>
+  <!-- Navigation Bar -->
+  <nav class="navbar" aria-label="Main Navigation">
+    <span>AICareerAgent</span>
+    <span style="font-size:0.9em; margin-left:16px;">Your AI-powered career coach</span>
+  </nav>
+
+  <div class="container">
+    <!-- 🌟 Career Pathway Agent -->
+    <section aria-labelledby="career-heading" class="form-section">
+      <h2 id="career-heading">1. Discover Career Pathways</h2>
+      <label for="career-input" class="sr-only">Describe your interests, strengths, or goals</label>
+      <textarea id="career-input" placeholder="What are your interests, strengths, or goals?" aria-describedby="career-desc"></textarea>
+      <div id="career-desc" class="mb-2">Get personalized career suggestions based on your input.</div>
+      <button onclick="getCareerSuggestions()" id="career-btn">Get Career Suggestions</button>
+      <div id="career-loading" style="display:none;" class="mt-2">Loading...</div>
+      <div id="career-output" class="output-box" aria-live="polite"></div>
+    </section>
+
+    <!-- 🧾 Resume Builder Agent -->
+    <section aria-labelledby="resume-heading" class="form-section">
+      <h2 id="resume-heading">2. Resume Builder</h2>
+      <label for="resume-input" class="sr-only">Describe your experience</label>
+      <textarea id="resume-input" placeholder="Describe your work, school, or volunteer experience..."></textarea>
+      <div class="mb-2">Generate resume bullet points from your experience.</div>
+      <button onclick="getResume()" id="resume-btn">Generate Resume Bullets</button>
+      <div id="resume-loading" style="display:none;" class="mt-2">Loading...</div>
+      <div id="resume-output" class="output-box" aria-live="polite"></div>
+    </section>
+
+    <!-- 🎤 Interview Coach Agent -->
+    <section aria-labelledby="interview-heading" class="form-section">
+      <h2 id="interview-heading">3. Interview Coach</h2>
+      <label for="interview-role" class="sr-only">Job Title</label>
+      <input type="text" id="interview-role" placeholder="Enter a job title (e.g., Software Engineer)" />
+      <div class="mb-2">Practice interview questions for your target role.</div>
+      <button onclick="getInterviewQuestions()" id="interview-btn">Start Interview</button>
+      <div id="interview-loading" style="display:none;" class="mt-2">Loading...</div>
+      <div id="interview-output" class="output-box" aria-live="polite"></div>
+    </section>
+
+    <!-- 📚 Learning Resources Agent -->
+    <section aria-labelledby="learning-heading" class="form-section">
+      <h2 id="learning-heading">4. Learning Path</h2>
+      <label for="learning-input" class="sr-only">Target Job</label>
+      <input type="text" id="learning-input" placeholder="What job do you want to learn for?" />
+      <div class="mb-2">Get curated learning resources for your chosen career.</div>
+      <button onclick="getLearningResources()" id="learning-btn">Get Learning Resources</button>
+      <div id="learning-loading" style="display:none;" class="mt-2">Loading...</div>
+      <div id="learning-output" class="output-box" aria-live="polite"></div>
+    </section>
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align:center; margin:32px 0 12px 0; color:#888; font-size:0.95em;">
+    &copy; 2025 AICareerAgent. All rights reserved.
+  </footer>
+
+  <!-- Link JS Files -->
+  <script src="js/career.js"></script>
+  <script src="js/resume.js"></script>
+  <script src="js/interview.js"></script>
+  <script src="js/learning.js"></script>
+</body>
+</html>

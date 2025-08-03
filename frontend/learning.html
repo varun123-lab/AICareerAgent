@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning Path | AI Career Agent</title>
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css">
+</head>
+<body>
+  <style>
+    body {
+      background: #111;
+      min-height: 100vh;
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .blur-bg {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 30% 40%, #fff2 0%, #111 70%), radial-gradient(circle at 70% 70%, #fff1 0%, #111 80%);
+      filter: blur(32px);
+    }
+    .glow-btn {
+      box-shadow: 0 0 16px 2px #fff3, 0 2px 8px #0006;
+      border: 1px solid #fff2;
+      background: #222;
+      color: #fff;
+      transition: box-shadow 0.2s, background 0.2s;
+    }
+    .glow-btn:hover {
+      box-shadow: 0 0 32px 4px #fff6, 0 4px 16px #0008;
+      background: #333;
+      color: #fff;
+    }
+    .nav-link {
+      color: #fff;
+      opacity: 0.85;
+      font-weight: 500;
+      margin-left: 2rem;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .nav-link:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: #fff;
+      display: flex;
+      align-items: center;
+    }
+    .logo-icon {
+      width: 2rem;
+      height: 2rem;
+      background: #fff;
+      border-radius: 0.5rem;
+      margin-right: 0.75rem;
+      display: inline-block;
+    }
+    .main-content {
+      position: relative;
+      z-index: 1;
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+    .headline {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      margin-top: 2rem;
+      letter-spacing: -0.03em;
+    }
+    .desc {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-bottom: 2.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @media (max-width: 700px) {
+      .headline { font-size: 2.2rem; }
+      .main-content { min-height: 60vh; }
+    }
+  </style>
+  <div class="blur-bg"></div>
+  <header class="flex items-center justify-between w-100 pa4" style="position:relative; z-index:2;">
+    <div class="logo">
+      <span class="logo-icon"></span>
+      AICareerAgent
+    </div>
+    <nav class="flex items-center">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="career.html" class="nav-link">Career Pathways</a>
+      <a href="resume.html" class="nav-link">Resume Builder</a>
+      <a href="interview.html" class="nav-link">Interview Coach</a>
+      <a href="learning.html" class="nav-link">Learning Path</a>
+    </nav>
+  </header>
+  <main class="main-content">
+    <div class="headline">Learning Path</div>
+    <div class="desc">Get curated learning resources for your chosen career.</div>
+    <div class="w-100 mw6 center bg-black-20 pa4 br3 shadow-5">
+      <input type="text" id="learning-input" class="w-100 pa3 br2 mb3 bg-black-10 white" placeholder="What job do you want to learn for?" />
+      <button id="learning-btn" class="glow-btn pv2 ph4 br-pill f5 fw6 mb3">Get Learning Resources</button>
+      <div id="learning-loading" style="display:none;" class="white-70 mb2">Loading...</div>
+      <div id="learning-output" class="bg-black-10 white pa3 br2 mt2" aria-live="polite"></div>
+    </div>
+  </main>
+  <footer class="tc white-50 pv3 f6" style="position:relative; z-index:2;">© 2025 AI Career Agent</footer>
+  <script src="/static/learning.js"></script>
+</body>
+</html>
