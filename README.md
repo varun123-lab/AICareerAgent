@@ -1,6 +1,6 @@
 # AI Career Agent
 
-This project is an AI Career Agent website that connects users with career advice and job opportunities using a Python backend and a web frontend built with React.
+AI Career Agent is helps users navigate career discovery, skill development, resume building, and interview preparation—all in one place. Designed for students, job seekers, and career changers, the platform leverages the power of Agents to deliver personalized guidance, making it easier to build a future-ready career.
 
 ## Project Structure
 
