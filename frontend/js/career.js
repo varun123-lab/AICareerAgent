@@ -6,7 +6,7 @@ async function getCareerSuggestions() {
   outputBox.innerText = "";
   loading.style.display = "block";
   try {
-    const response = await fetch("http://127.0.0.1:5000/career-advice", {
+    const response = await fetch("http://127.0.0.1:5002/career-advice", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
@@ -38,18 +38,18 @@ async function getResume() {
   outputBox.innerText = "";
   loading.style.display = "block";
   try {
-    const response = await fetch("http://127.0.0.1:5000/resume-suggestions", {
+    const response = await fetch("http://127.0.0.1:5002/generate-resume", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ resumeText: input })
+      body: JSON.stringify({ experience: input })
     });
     if (!response.ok) {
       throw new Error("Failed to fetch response from server.");
     }
     const data = await response.json();
-    outputBox.innerText = data.suggestions || "No resume suggestions found.";
+    outputBox.innerText = data.resume || "No resume suggestions found.";
   } catch (error) {
     outputBox.innerText = "⚠️ Error: " + error.message;
   }
@@ -69,7 +69,7 @@ async function getCareerAdvice() {
   const outputBox = document.getElementById("career-output");
   outputBox.innerText = "Loading...";
   try {
-    const response = await fetch("http://127.0.0.1:5000/career-advice", {
+    const response = await fetch("http://127.0.0.1:5002/career-advice", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query: input })

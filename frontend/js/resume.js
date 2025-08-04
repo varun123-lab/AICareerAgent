@@ -5,7 +5,7 @@ async function getResume() {
   outputBox.innerText = "Generating resume bullets...";
 
   try {
-    const response = await fetch("http://localhost:5000/generate-resume", {
+    const response = await fetch("http://127.0.0.1:5002/generate-resume", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

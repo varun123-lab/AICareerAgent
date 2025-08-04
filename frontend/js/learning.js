@@ -152,7 +152,7 @@ async function getLearningResources() {
   
   try {
     console.log("[DEBUG] Sending POST to /learning-resources...");
-    const response = await fetch("http://127.0.0.1:5000/learning-resources", {
+    const response = await fetch("http://127.0.0.1:5002/learning-resources", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
