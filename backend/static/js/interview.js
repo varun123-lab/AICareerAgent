@@ -1,3 +1,8 @@
+// Interview page initialization without authentication
+document.addEventListener('DOMContentLoaded', async () => {
+  console.log('Interview page loaded - Ready to use!');
+});
+
 async function getInterviewQuestions() {
   const input = document.getElementById("interview-role").value;
   const outputBox = document.getElementById("interview-output");
@@ -5,7 +10,7 @@ async function getInterviewQuestions() {
   outputBox.innerText = "";
   loading.style.display = "block";
   try {
-    const response = await fetch("http://localhost:5000/mock-interview", {
+    const response = await fetch("http://127.0.0.1:5002/mock-interview", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

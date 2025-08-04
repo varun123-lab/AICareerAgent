@@ -1,3 +1,8 @@
+// Resume page initialization without authentication
+document.addEventListener('DOMContentLoaded', async () => {
+  console.log('Resume page loaded - Ready to use!');
+});
+
 async function getResume() {
   const input = document.getElementById("resume-input").value;
   const outputBox = document.getElementById("resume-output");
@@ -5,7 +10,7 @@ async function getResume() {
   outputBox.innerText = "Generating resume bullets...";
 
   try {
-    const response = await fetch("http://localhost:5000/generate-resume", {
+    const response = await fetch("http://127.0.0.1:5002/generate-resume", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

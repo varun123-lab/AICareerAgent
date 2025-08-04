@@ -9,30 +9,44 @@
 <body>
   <style>
     body {
-      background: #111;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
       min-height: 100vh;
       font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
       position: relative;
       overflow-x: hidden;
+      animation: gradientShift 15s ease infinite;
     }
+    
+    @keyframes gradientShift {
+      0%, 100% { background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); }
+      25% { background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%); }
+      50% { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #667eea 100%); }
+      75% { background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); }
+    }
+    
     .blur-bg {
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
       z-index: 0;
       pointer-events: none;
-      background: radial-gradient(circle at 30% 40%, #fff2 0%, #111 70%), radial-gradient(circle at 70% 70%, #fff1 0%, #111 80%);
+      background: radial-gradient(circle at 30% 40%, rgba(255,255,255,0.1) 0%, transparent 70%), 
+                  radial-gradient(circle at 70% 70%, rgba(255,255,255,0.05) 0%, transparent 80%);
       filter: blur(32px);
     }
     .glow-btn {
-      box-shadow: 0 0 16px 2px #fff3, 0 2px 8px #0006;
-      border: 1px solid #fff2;
-      background: #222;
+      box-shadow: 0 0 20px 4px rgba(255,255,255,0.3), 0 4px 16px rgba(0,0,0,0.2);
+      border: 2px solid rgba(255,255,255,0.3);
+      background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+      backdrop-filter: blur(10px);
       color: #fff;
-      transition: box-shadow 0.2s, background 0.2s;
+      transition: all 0.3s ease;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+      font-weight: 600;
     }
     .glow-btn:hover {
-      box-shadow: 0 0 32px 4px #fff6, 0 4px 16px #0008;
-      background: #333;
+      box-shadow: 0 0 30px 6px rgba(255,255,255,0.5), 0 6px 20px rgba(0,0,0,0.3);
+      background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.2) 100%);
+      transform: translateY(-2px);
       color: #fff;
     }
     .nav-link {
@@ -91,31 +105,57 @@
     }
     .headline {
       font-size: 4rem;
-      font-weight: 700;
+      font-weight: 800;
       line-height: 1.1;
       margin-bottom: 1.5rem;
       margin-top: 2rem;
       letter-spacing: -0.03em;
+      background: linear-gradient(135deg, #fff 0%, #e0e7ff 50%, #c7d2fe 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: glow 3s ease-in-out infinite alternate;
+      text-shadow: 0 0 20px rgba(255,255,255,0.5);
     }
+    
+    @keyframes glow {
+      from { filter: drop-shadow(0 0 20px rgba(255,255,255,0.5)); }
+      to { filter: drop-shadow(0 0 30px rgba(255,255,255,0.8)); }
+    }
+    
     .tagline {
-      font-size: 1.25rem;
-      font-weight: 500;
+      font-size: 1.4rem;
+      font-weight: 600;
       margin-bottom: 2rem;
-      opacity: 0.85;
+      opacity: 0.95;
+      color: rgba(255,255,255,0.95);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
     }
     .desc {
-      font-size: 1.1rem;
-      color: #ccc;
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.85);
       margin-bottom: 2.5rem;
-      max-width: 600px;
+      max-width: 650px;
       margin-left: auto;
       margin-right: auto;
     }
     .action-btns {
       display: flex;
-      gap: 2rem;
+      gap: 1rem;
       justify-content: center;
       margin-bottom: 2.5rem;
+      flex-wrap: wrap;
+    }
+    
+    .action-btns a {
+      text-decoration: none;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      min-width: 160px;
+      text-align: center;
     }
     @media (max-width: 700px) {
       .headline { font-size: 2.2rem; }
@@ -132,10 +172,10 @@
     </div>
     <nav class="flex items-center">
       <a href="career.html" class="nav-link">Career Pathways</a>
-      <a href="resume.html" class="nav-link">Resume Builder</a>
-      <a href="interview.html" class="nav-link">Interview Coach</a>
-      <a href="learning.html" class="nav-link">Learning Path</a>
-      
+       <a href="interview.html" class="nav-link">AI Interview Prep Coach</a>
+      <a href="learning.html" class="nav-link">Learning Paths</a>
+      <a href="resume.html" class="nav-link">Resume Building</a>
+     
     </nav>
   </header>
   <main class="main-content">
@@ -143,13 +183,18 @@
     <div class="headline">AI Career Guidance<br>that you need Indeed</div>
     <div class="desc">Elevate your career with custom pathways, resume building, interview prep, and curated learning resources. Showcase your story through bold AI-powered insights and strategic support.</div>
     <div class="action-btns">
-      <a href="#" class="glow-btn pv3 ph4 br3 fw6">Book a Free Call</a>
-      <a href="career.html" class="glow-btn pv3 ph4 br3 fw6">See Career Paths</a>
+      <a href="career.html" class="glow-btn pv3 ph4 br3 fw6" style="margin-right: 1rem;">🎯 Explore Career Paths</a>
+      <a href="resume.html" class="glow-btn pv3 ph4 br3 fw6" style="margin-right: 1rem;">📄 Build Resume</a>
+      <a href="interview.html" class="glow-btn pv3 ph4 br3 fw6" style="margin-right: 1rem;">💼 Interview Prep</a>
+      <a href="learning.html" class="glow-btn pv3 ph4 br3 fw6">📚 Learning Resources</a>
     </div>
    
   </main>
   <footer class="tc gray f6 mv4" style="position:relative; z-index:2;">
     &copy; 2025 AICareerAgent. All rights reserved.
   </footer>
+  
+  <!-- Load authentication script first -->
+  <script src="js/main.js"></script>
 </body>
 </html>

@@ -9,11 +9,23 @@
 <body>
   <style>
     body {
-      background: #111;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
       min-height: 100vh;
       font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
       position: relative;
       overflow-x: hidden;
+      animation: gradientShift 20s ease infinite;
+    }
+    
+    @keyframes gradientShift {
+      0%, 100% { background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%); }
+      33% { background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%); }
+      66% { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 50%, #667eea 100%); }
+    }
+    
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
     }
     .blur-bg {
       position: fixed;
@@ -102,23 +114,39 @@
       AICareerAgent
     </div>
     <nav class="flex items-center">
-      <a href="index.html" class="nav-link">Home</a>
       <a href="career.html" class="nav-link">Career Pathways</a>
-      <a href="resume.html" class="nav-link">Resume Builder</a>
-      <a href="interview.html" class="nav-link">Interview Coach</a>
-      <a href="learning.html" class="nav-link">Learning Path</a>
+       <a href="interview.html" class="nav-link">AI Interview Prep Coach</a>
+      <a href="learning.html" class="nav-link">Learning Paths</a>
+      <a href="resume.html" class="nav-link">Resume Building</a>
     </nav>
   </header>
   <main class="main-content">
-    <div class="headline">Discover Career Pathways</div>
-    <div class="desc">Get personalized career suggestions based on your interests, strengths, or goals.</div>
-    <div class="w-100 mw6 center bg-black-20 pa4 br3 shadow-5">
-      <textarea id="career-input" class="w-100 pa3 br2 mb3 bg-black-10 white" rows="4" placeholder="What are your interests, strengths, or goals?"></textarea>
-      <button id="career-btn" class="glow-btn pv2 ph4 br-pill f5 fw6 mb3">Get Career Suggestions</button>
-      <div id="career-loading" style="display:none;" class="white-70 mb2">Loading...</div>
-      <div id="career-output" class="bg-black-10 white pa3 br2 mt2" aria-live="polite"></div>
+    <div class="headline" style="background: linear-gradient(135deg, #fff 0%, #e0e7ff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">🎯 Discover Career Pathways</div>
+    <div class="desc" style="color: rgba(255,255,255,0.9); font-size: 1.2rem; margin-bottom: 3rem;">Get personalized career suggestions powered by advanced AI analysis based on your interests, strengths, and goals.</div>
+    
+    <div class="w-100 mw7 center pa4 br4" style="background: rgba(255,255,255,0.1); backdrop-filter: blur(15px); border: 1px solid rgba(255,255,255,0.2); border-radius: 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.2);">
+      <textarea id="career-input" class="w-100 pa3 br3 mb3" 
+        rows="5" 
+        placeholder="✨ Tell me about your interests, skills, career goals, or current situation... (e.g., 'I love technology and problem-solving, interested in AI and data science, have a computer science background')"
+        style="background: rgba(255,255,255,0.95); border: 2px solid rgba(255,255,255,0.3); border-radius: 12px; font-size: 1rem; resize: vertical; min-height: 130px; color: #333; font-family: inherit;"></textarea>
+      
+      <button id="career-btn" class="glow-btn pv3 ph4 br-pill f5 fw6 mb3" style="width: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border: none; color: white; font-size: 1.1rem; padding: 1rem 2rem;">
+        🚀 Discover My Career Path
+      </button>
+      
+      <div id="career-loading" style="display:none;" class="white-90 mb3 tc f5">
+        <div style="display: inline-block; animation: spin 1s linear infinite; margin-right: 8px;">⚡</div> 
+        Analyzing your career potential with AI...
+      </div>
+      
+      <div id="career-output" class="mt3" 
+        style="background: rgba(255,255,255,0.95); color: #333; padding: 1.5rem; border-radius: 15px; min-height: 120px; border: 1px solid rgba(255,255,255,0.3); box-shadow: 0 4px 20px rgba(0,0,0,0.1); font-size: 1rem; line-height: 1.6;" 
+        aria-live="polite">
+        💡 Your personalized career insights and recommendations will appear here...
+      </div>
     </div>
   </main>
   <footer class="tc white-50 pv3 f6" style="position:relative; z-index:2;">© 2025 AI Career Agent</footer>
-  <script src="/static/career.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/career.js"></script>
 </html>

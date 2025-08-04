@@ -8,45 +8,64 @@
 </head>
 <body>
   <style>
+    /* Enhanced gradient background animation */
     body {
-      background: #111;
+      background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+      background-size: 400% 400%;
+      animation: gradientShift 8s ease infinite;
       min-height: 100vh;
-      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-      position: relative;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       overflow-x: hidden;
     }
-    .blur-bg {
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      z-index: 0;
-      pointer-events: none;
-      background: radial-gradient(circle at 30% 40%, #fff2 0%, #111 70%), radial-gradient(circle at 70% 70%, #fff1 0%, #111 80%);
-      filter: blur(32px);
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
+    
     .glow-btn {
-      box-shadow: 0 0 16px 2px #fff3, 0 2px 8px #0006;
-      border: 1px solid #fff2;
-      background: #222;
-      color: #fff;
-      transition: box-shadow 0.2s, background 0.2s;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+      color: white;
+      border: none;
+      padding: 15px 35px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
     }
+    
     .glow-btn:hover {
-      box-shadow: 0 0 32px 4px #fff6, 0 4px 16px #0008;
-      background: #333;
-      color: #fff;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+      background: linear-gradient(45deg, #764ba2, #667eea);
     }
+    
     .nav-link {
-      color: #fff;
-      opacity: 0.85;
+      color: white;
       font-weight: 500;
-      margin-left: 2rem;
       text-decoration: none;
-      transition: opacity 0.2s;
+      padding: 12px 20px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      margin: 0 10px;
     }
+    
     .nav-link:hover {
-      opacity: 1;
-      text-decoration: underline;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      color: white;
+      text-decoration: none;
     }
+    
     .logo {
       font-size: 2rem;
       font-weight: 700;
@@ -74,6 +93,23 @@
       text-align: center;
       color: #fff;
     }
+    
+    .w-100.mw6.center.bg-black-20.pa4.br3.shadow-5 {
+      background: rgba(255, 255, 255, 0.15) !important;
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .bg-black-10 {
+      background: rgba(255, 255, 255, 0.1) !important;
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
     .headline {
       font-size: 3rem;
       font-weight: 700;
@@ -95,18 +131,16 @@
       .main-content { min-height: 60vh; }
     }
   </style>
-  <div class="blur-bg"></div>
   <header class="flex items-center justify-between w-100 pa4" style="position:relative; z-index:2;">
     <div class="logo">
       <span class="logo-icon"></span>
       AICareerAgent
     </div>
     <nav class="flex items-center">
-      <a href="index.html" class="nav-link">Home</a>
       <a href="career.html" class="nav-link">Career Pathways</a>
-      <a href="resume.html" class="nav-link">Resume Builder</a>
-      <a href="interview.html" class="nav-link">Interview Coach</a>
-      <a href="learning.html" class="nav-link">Learning Path</a>
+       <a href="interview.html" class="nav-link">AI Interview Prep Coach</a>
+      <a href="learning.html" class="nav-link">Learning Paths</a>
+      <a href="resume.html" class="nav-link">Resume Building</a>
     </nav>
   </header>
   <main class="main-content">
@@ -120,6 +154,7 @@
     </div>
   </main>
   <footer class="tc white-50 pv3 f6" style="position:relative; z-index:2;">© 2025 AI Career Agent</footer>
-  <script src="/static/learning.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/learning.js"></script>
 </body>
 </html>

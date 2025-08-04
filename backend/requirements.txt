@@ -1,4 +1,18 @@
 
 flask
+flask-cors
 openai
 python-dotenv
+
+# LangChain Dependencies for Advanced AI Agents (Updated to compatible versions)
+langchain>=0.1.0
+langchain-openai>=0.0.5
+langchain-community>=0.0.10
+langchain-core>=0.1.7
+
+# Vector Database and Embeddings
+faiss-cpu>=1.7.4
+
+# Optional: For more advanced features
+# langchain-experimental>=0.0.50
+# chromadb>=0.4.18

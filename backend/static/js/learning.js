@@ -1,3 +1,13 @@
+console.log('Main JS loaded');
+
+// Learning page initialization without authentication
+document.addEventListener('DOMContentLoaded', async () => {
+  console.log('Learning page loaded - Ready to use!');
+  
+  // Initialize learning resources after page load
+  getLearningResources();
+});
+
 document.getElementById("learning-btn").addEventListener("click", getLearningResources);
 document.getElementById("learning-input").addEventListener("keypress", function(event) {
   if (event.key === "Enter") {
@@ -5,9 +15,7 @@ document.getElementById("learning-input").addEventListener("keypress", function(
     getLearningResources();
   }
 });
-document.addEventListener("DOMContentLoaded", function() {
-  getLearningResources();
-});
+
 document.getElementById("learning-input").addEventListener("input", function() {
   const input = this.value.trim();
   if (input) {
@@ -19,7 +27,7 @@ async function getLearningResources() {
   outputBox.innerText = "";
   loading.style.display = "block";
   try {
-    const response = await fetch("http://localhost:5000/learning-resources", {
+    const response = await fetch("http://127.0.0.1:5002/learning-resources", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ topic: input })
